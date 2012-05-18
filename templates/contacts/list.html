@@ -1,0 +1,19 @@
+<table border="1">
+<caption>Listas</caption>
+<tr>
+  <th>Nombre</th>
+  <th>Cumple</th>
+  <th>Fonos</th>
+  <th>Dires</th>
+</tr>
+
+{% for contact in contacts %}
+<tr>
+  <td><a href="{% url contact_edit contact.id %}">{{ contact }}</td>
+  <td>{{ contact.birth_date|date:"d/m/Y" }}</td>
+  <td>{{ contact.phones }}</td>
+  <td>{{ contact.addresses }}</td>
+</tr>
+{% endfor %}
+
+</table>
