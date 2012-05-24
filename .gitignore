@@ -5,3 +5,4 @@
 local_settings.py
 *.tmp
 *.sqlite3
+*.nja

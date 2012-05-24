@@ -1,5 +1,7 @@
-<table border="1">
-<caption>Listas</caption>
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-striped">
 <tr>
   <th>Nombre</th>
   <th>Cumple</th>
@@ -17,3 +19,4 @@
 {% endfor %}
 
 </table>
+{% endblock %}
