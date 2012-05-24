@@ -2,6 +2,8 @@ from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.conf import settings
+
 admin.autodiscover()
 
 from django.conf import settings
@@ -17,16 +19,17 @@ urlpatterns = patterns('',
     (r'^$', 'django.views.generic.simple.redirect_to', {'url': '/contacts/'}),
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^$', include('contacts.urls')),
     (r'^contacts/', include('contacts.urls')),
 
 )
 
+
 if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
     urlpatterns += patterns('',
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
-        }),
-   )
+        (r'^mymedia/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}))
 
 if settings.DEBUG:
     urlpatterns += patterns('django.contrib.staticfiles.views',

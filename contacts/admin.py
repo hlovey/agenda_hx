@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from contacts.models import Person, Phone, Address
 
+
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name', 'birth_date')
 
